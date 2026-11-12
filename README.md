@@ -1,6 +1,9 @@
-# 🐆 EOSLynx Wallet
 
 <div align="center">
+
+<img src="eoslynx.png" alt="EOSLynx Wallet Logo" width="160"/>
+
+# 🐆 EOSLynx Wallet
 
 ### Your Gateway to the EOS Ecosystem
 
@@ -18,16 +21,6 @@ A modern desktop wallet designed for managing digital assets and exploring the E
 ## About EOSLynx
 
 EOSLynx Wallet provides a modern and intuitive desktop experience for managing digital assets and interacting with the EOS blockchain ecosystem.
-
-## Features
-
-- 🔐 Secure wallet management
-- ⚡ Clean and intuitive interface
-- 🌐 EOS blockchain integration
-- 💻 Cross-platform compatibility
-- 🎨 Modern desktop experience
-
----
 
 ## <div align="center" id="downloads">Download EOSLynx Wallet</div>
 
