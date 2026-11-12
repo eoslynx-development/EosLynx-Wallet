@@ -65,7 +65,7 @@ Intel / Apple Silicon*
 
 <br/>
 
-<a href="../../releases/latest">
+<a href="https://github.com/eoslynx-development/EosLynx-Wallet/releases/download/0.4.3/EOSLynx-v0.4.3.dmg">
 <img src="https://img.shields.io/badge/Download%20for%20macOS-333333?style=for-the-badge&logo=apple&logoColor=white" alt="Download macOS"/>
 </a>
 
@@ -84,7 +84,7 @@ Linux Distributions
 
 <br/>
 
-<a href="https://github.com/eoslynx-development/EosLynx-Wallet/releases/download/0.4.3/EOSLynx-v0.4.3.dmg">
+<a href="https://github.com/eoslynx-development/EosLynx-Wallet/releases/download/0.4.3/EOSLynx-v0.4.3.deb">
 <img src="https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download Linux"/>
 </a>
 
